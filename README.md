@@ -1,4 +1,4 @@
-# agency-landing-page
+# Agency-landing-page
 
 A fully responsive marketing agency landing page built as a Bootstrap 5 practice project.
 
