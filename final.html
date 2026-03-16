@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potato Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/tasa-orbiter-display" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #96E1DC;
+      --dark-teal: #042028;
+      --black: #141315;
+      --light: #F7F7F7;
+    }
+
+    body { font-family: 'TASA Orbiter Display', sans-serif; -webkit-font-smoothing: antialiased; }
+    button, input, select, textarea { font-family: inherit; }
+    img, svg { max-width: 100%; height: auto; }
+
+    /* ── Brand color tokens ── */
+    .bg-black   { background-color: var(--black) !important; }
+    .bg-dk-teal { background-color: var(--dark-teal) !important; }
+
+    /* ── AI badge ── */
+    .badge-ai {
+      color: var(--accent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      background: rgba(150,225,220,0.1); border: 1px solid rgba(150,225,220,0.25);
+      border-radius: 6px; padding: 6px 14px;
+    }
+
+    /* ── Buttons ── */
+    .btn-accent { background: var(--accent); color: var(--black); border: none; font-weight: 700; border-radius: 6px; font-size: 15px; }
+    .btn-accent:hover { background: #7dcfca; color: var(--black); }
+    .btn-ghost  { background: transparent; border: 1.5px solid rgba(247,247,247,0.25); color: var(--light); font-weight: 700; border-radius: 6px; font-size: 15px; }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-outline-gray { background: transparent; border: 1.5px solid #d1d5db; color: var(--black); border-radius: 6px; font-size: 14px; }
+    .btn-outline-gray:hover { background: var(--dark-teal); color: var(--accent); border-color: var(--dark-teal); }
+    .btn-learn  { background: #fff; border: 1.5px solid #d1d5db; color: var(--black); border-radius: 6px; font-size: 15px; }
+    .btn-learn:hover { background: var(--dark-teal); color: var(--accent); border-color: var(--dark-teal); }
+
+    /* ── Hero chart card ── */
+    .hero-card { background: #0a2a28; border: 1px solid rgba(150,225,220,0.12); border-radius: 16px; overflow: hidden; }
+    .hero-card-footer { background: #0d3330; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* ── Partner strip ── */
+    .partner-rule { border-top: 1px solid rgba(255,255,255,0.06); }
+    .partner-rule-line { height: 1px; background: rgba(255,255,255,0.08); flex: 1; }
+
+    /* ── About card wrappers ── */
+    .col-outer { background: #f3f4f6; border-radius: 20px; padding: 20px; }
+    .col-inner { background: #fff; border-radius: 14px; overflow: hidden; }
+
+    /* ── Country progress bars ── */
+    .country-bar { height: 7px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+    .country-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+
+    /* ── Pricing ── */
+    .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+    .pricing-list { list-style: none; padding: 0; }
+    .pricing-list li { font-size: 14px; color: rgba(255,255,255,0.75); padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+    .pricing-list li::before { content: '✓'; color: var(--accent); font-size: 13px; }
+
+    /* ── Feature boxes ── */
+    .feature-box { border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; }
+    .feature-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(150,225,220,0.12); font-size: 18px; flex-shrink: 0; }
+
+    /* ── Testimonial ── */
+    .testi-quote { font-size: clamp(1rem, 2vw, 1.35rem); line-height: 1.7; color: var(--black); }
+    .arrow-btn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid #d1d5db; background: transparent; color: var(--black); display: flex; align-items: center; justify-content: center; }
+    .arrow-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Founder ── */
+    .founder-card { background: #f8f9fa; border-radius: 16px; border-top: 3px solid var(--accent); overflow: hidden; }
+    .founder-photo { width: 100%; max-width: 200px; height: 260px; object-fit: cover; object-position: top; filter: grayscale(20%); }
+
+    /* ── Footer ── */
+    footer.site-footer { background: #071c1a; border-radius: 16px; }
+    .footer-divider { border-color: rgba(255,255,255,0.07) !important; }
+    .social-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: transparent; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .email-wrap { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; }
+    .email-wrap input { background: transparent; border: none; outline: none; color: var(--light); font-size: 13px; font-family: inherit; flex: 1; min-width: 0; }
+    .email-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+    .email-wrap button { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 16px; cursor: pointer; }
+    .email-wrap button:hover { color: var(--accent); }
+
+    /* ── About cards: fixed height only on large screens ── */
+    @media (min-width: 992px) {
+      .col-outer { height: 500px; }
+      .col-inner  { height: 100%; }
+    }
+  </style>
+</head>
+
+<body class="bg-dk-teal" style="color:var(--light);">
+
+  <!-- ════════════════ ① HERO ════════════════ -->
+  <section class="bg-black min-vh-100 d-flex flex-column justify-content-center py-5">
+    <div class="container px-3 px-md-4 px-lg-5">
+      <div class="row align-items-center g-4 g-lg-5">
+
+        <!-- Left -->
+        <div class="col-12 col-lg-6">
+          <span class="badge-ai d-inline-block mb-4">The First Marketing Platform with AI</span>
+          <h1 class="fw-normal lh-1 mb-3" style="font-size:clamp(2.2rem,5vw,3.5rem); color:var(--light);">
+            The Marketing Platform With <span class="fw-bold">High Conversion</span>
+          </h1>
+          <p class="mb-4" style="color:rgba(247,247,247,0.65); font-size:16px; line-height:1.8; max-width:480px;">
+            With the right marketing, increase your business income quickly
+            and in the long term, we guarantee our service.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-accent px-4 py-3">Get Started for Free</button>
+            <button class="btn btn-ghost px-4 py-3">Book a Demo</button>
+          </div>
+          <!-- YC badge -->
+          <div class="d-flex align-items-center gap-2 mt-4">
+            <span style="font-size:13px; color:rgba(255,255,255,0.5);">A</span>
+            <span class="badge rounded-1 px-2 py-1" style="background:#ff6600; font-size:11px;">Y</span>
+            <span style="font-size:13px; color:rgba(255,255,255,0.5);">Combinator <em>Company</em></span>
+          </div>
+        </div>
+
+        <!-- Right: chart card -->
+        <div class="col-12 col-lg-6">
+          <div class="hero-card w-100">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span style="color:rgba(255,255,255,0.6); font-size:13px;">Transaction activity ▾</span>
+                <span class="badge rounded-pill px-2 py-1" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); font-size:11px;">1Y ▾</span>
+              </div>
+              <h4 class="fw-bold text-white mb-3" style="font-size:22px;">$90,865.00</h4>
+              <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; min-height:80px;">
+                <defs>
+                  <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#96E1DC" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#96E1DC" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="30" x2="400" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="0" y1="90" x2="400" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="130" y1="0" x2="130" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="260" y1="0" x2="260" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20 L400,120 L0,120 Z" fill="url(#chartFill)"/>
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20" fill="none" stroke="#96E1DC" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="260" cy="35" r="4" fill="#96E1DC"/>
+                <circle cx="260" cy="35" r="7" fill="rgba(150,225,220,0.2)"/>
+              </svg>
+              <div class="d-flex justify-content-between mt-2 px-1">
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Jan 10</span>
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Feb 10</span>
+              </div>
+            </div>
+            <div class="hero-card-footer d-flex justify-content-between align-items-center px-3 py-3">
+              <span style="color:rgba(255,255,255,0.5); font-size:13px;">Received Order</span>
+              <span class="badge rounded-pill px-2" style="background:rgba(150,225,220,0.15); color:var(--accent); font-size:11px;">● Live</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Partner strip -->
+      <div class="partner-rule mt-5 pt-4">
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <span class="partner-rule-line d-none d-sm-block"></span>
+          <span style="font-size:12px; color:rgba(247,247,247,0.4); white-space:nowrap;">Loved by 100,000+ big and small brands around the world</span>
+          <span class="partner-rule-line d-none d-sm-block"></span>
+        </div>
+        <div class="d-flex justify-content-start justify-content-md-between align-items-center flex-wrap gap-3 gap-md-4">
+          <span class="fw-bold fst-italic" style="font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.3);">Athena</span>
+          <span class="fw-bold" style="font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.3);">Baronfig</span>
+          <span class="fw-bold fst-italic" style="font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.3);">Trust Fund</span>
+          <span class="fw-bold fst-italic" style="font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.3);">Aura</span>
+          <span class="fw-bold d-flex align-items-center gap-2" style="font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.3);">
+            <span class="rounded-circle d-inline-flex align-items-center justify-content-center" style="width:22px;height:22px;background:rgba(255,255,255,0.1);font-size:10px;">B</span>
+            Brew Money
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ② ABOUT ════════════════ -->
+  <section class="bg-white py-5" style="color:var(--black);">
+    <div class="container py-3 py-lg-4" style="max-width:1100px;">
+
+      <!-- Heading -->
+      <div class="row mb-4 mb-lg-5">
+        <div class="col-12 text-center">
+          <h1 class="fw-normal mx-auto" style="font-size:clamp(1.8rem,4.5vw,3.2rem); line-height:1.1; max-width:680px;">
+            Our features come from the future, simple and powerful
+          </h1>
+          <p class="mt-2 text-secondary" style="font-size:15px;">Features that are always being developed are powered by Intelligent AI.</p>
+        </div>
+      </div>
+
+      <!-- Row 1: Active Users + Data card -->
+      <div class="row align-items-stretch g-4">
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-between p-3 p-md-4 flex-grow-1">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-bold" style="font-size:15px;">Active users right now</span>
+                  <span class="text-secondary" style="letter-spacing:3px;">⋯</span>
+                </div>
+                <hr class="my-2 opacity-25">
+              </div>
+              <div class="fw-bold" style="font-size:clamp(2.4rem,6vw,3.4rem);">120.9k</div>
+              <div>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span style="font-size:20px;">🇺🇸</span>
+                    <span class="flex-grow-1" style="font-size:14px;">United States</span>
+                    <span class="text-secondary" style="font-size:13px;">50%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:50%;"></div></div>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span style="font-size:20px;">🇮🇳</span>
+                    <span class="flex-grow-1" style="font-size:14px;">India</span>
+                    <span class="text-secondary" style="font-size:13px;">30%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:30%;"></div></div>
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span style="font-size:20px;">🇬🇧</span>
+                    <span class="flex-grow-1" style="font-size:14px;">United Kingdom</span>
+                    <span class="text-secondary" style="font-size:13px;">20%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:20%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-center p-3 p-md-4 flex-grow-1">
+              <h2 class="fw-normal mb-3" style="font-size:clamp(1.6rem,3vw,2.6rem); line-height:1.2;">
+                Everything is based on data, not assumptions
+              </h2>
+              <p class="text-secondary mb-4" style="font-size:16px; line-height:1.75;">
+                Data is critical to good decision making, assumptions make bad decisions.
+              </p>
+              <div><button class="btn btn-learn px-4 py-2">Learn More</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 my-lg-5 opacity-10">
+
+      <!-- Row 2: AI card + Chart card -->
+      <div class="row align-items-stretch g-4">
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-center p-3 p-md-4 flex-grow-1">
+              <h2 class="fw-normal mb-3" style="font-size:clamp(1.6rem,3vw,2.6rem); line-height:1.2;">
+                The data is continuously updated, processed by AI
+              </h2>
+              <p class="text-secondary mb-4" style="font-size:16px; line-height:1.75;">
+                Data taken live from the market and consumers produces insights processed by AI.
+              </p>
+              <div><button class="btn btn-learn px-4 py-2">Learn More</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column p-3 p-md-4 flex-grow-1">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span style="font-size:15px;">How do you acquire users?</span>
+                <span class="text-secondary" style="letter-spacing:3px;">⋯</span>
+              </div>
+              <div class="d-flex gap-3 mb-3">
+                <span class="d-flex align-items-center gap-2" style="font-size:13px;">
+                  <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:var(--accent);"></span>Direct
+                </span>
+                <span class="d-flex align-items-center gap-2" style="font-size:13px;">
+                  <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:var(--dark-teal);"></span>Organic search
+                </span>
+              </div>
+              <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; min-height:120px;">
+                <rect x="10" y="70" width="35" height="60" rx="4" fill="#042028"/>
+                <rect x="10" y="45" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="60" y="45" width="35" height="85" rx="4" fill="#042028"/>
+                <rect x="60" y="20" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="110" y="80" width="35" height="50" rx="4" fill="#042028"/>
+                <rect x="110" y="55" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="160" y="60" width="35" height="70" rx="4" fill="#042028"/>
+                <rect x="160" y="35" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="210" y="75" width="35" height="55" rx="4" fill="#042028"/>
+                <rect x="210" y="50" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="260" y="65" width="35" height="65" rx="4" fill="#042028"/>
+                <rect x="260" y="40" width="35" height="25" rx="4" fill="#96E1DC"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ③ PRICING ════════════════ -->
+  <section class="bg-dk-teal py-5">
+    <div class="container px-3 px-md-4 px-lg-5 py-3 py-lg-4">
+
+      <div class="row mb-4 mb-lg-5">
+        <div class="col-12 text-center">
+          <h1 class="fw-normal" style="font-size:clamp(1.8rem,4vw,3rem); line-height:1.2; color:var(--light);">
+            Save time &amp; money<br>on Potato Agency
+          </h1>
+          <p class="mt-3" style="color:rgba(255,255,255,0.5); font-size:15px; line-height:1.7;">
+            Savings, visibility, and infrastructure guardrails. One automated platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+
+        <!-- Pricing card -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="pricing-card p-4 h-100">
+            <div class="d-flex align-items-end gap-1 mb-1">
+              <span style="font-size:1.4rem; color:var(--light); line-height:1.8;">$</span>
+              <span style="font-size:4rem; color:var(--light); line-height:1;">79</span>
+              <span style="font-size:1rem; color:rgba(255,255,255,0.6); line-height:2;">.00 / month</span>
+            </div>
+            <hr style="border-color:rgba(255,255,255,0.1);" class="my-4">
+            <p class="mb-3" style="font-size:13px; color:rgba(255,255,255,0.6);">Pick a product or all products plan:</p>
+            <ul class="pricing-list mb-4">
+              <li>Facebook Marketing</li>
+              <li>Tiktok Marketing</li>
+              <li>Landingpage Marketing</li>
+              <li>Display TikTok videos</li>
+              <li>Embed Instagram feed</li>
+              <li>Create link in bio page</li>
+            </ul>
+            <button class="btn btn-accent w-100 w-sm-auto px-4 py-2">Get started for free</button>
+            <p class="mt-3 mb-0" style="font-size:12px; color:rgba(255,255,255,0.3);">All Pro features included. 7-day free trial.</p>
+          </div>
+        </div>
+
+        <!-- Feature col 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="d-flex flex-column gap-3 h-100">
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">🔗</div>
+              <h4 class="fw-normal mb-2" style="font-size:15px; color:var(--light);">Potato API integrations</h4>
+              <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.65;">Potato has official API integrations with all major social media networks.</p>
+            </div>
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">🎯</div>
+              <h4 class="fw-normal mb-2" style="font-size:15px; color:var(--light);">Cancel anytime</h4>
+              <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.65;">If it's not for you, just cancel, with no hidden costs or fees.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature col 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="d-flex flex-column gap-3 h-100">
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">⚡</div>
+              <h4 class="fw-normal mb-2" style="font-size:15px; color:var(--light);">Fast-loading widgets</h4>
+              <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.65;">We design interactive social media widgets that load fast on your website.</p>
+            </div>
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">💬</div>
+              <h4 class="fw-normal mb-2" style="font-size:15px; color:var(--light);">Dedicated support team</h4>
+              <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.65;">Just click the bottom left chat icon, and our team will assist you in real-time.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ④ TESTIMONIALS ════════════════ -->
+  <section class="bg-white py-5" style="color:var(--black);">
+    <div class="container px-3 px-md-4 px-lg-5 py-3 py-lg-4">
+      <div class="row align-items-center g-4 g-lg-5">
+
+        <div class="col-12 col-lg-5">
+          <h2 class="fw-normal mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem); line-height:1.2;">
+            Loved by entire Marketing teams
+          </h2>
+          <p class="text-secondary mb-4" style="font-size:14px; line-height:1.7; max-width:280px;">
+            We ensure that our system can work well with the marketing team.
+          </p>
+          <button class="btn btn-outline-gray px-4 py-2">Client Testimonials</button>
+          <div class="d-flex gap-2 mt-4">
+            <button class="arrow-btn">←</button>
+            <button class="arrow-btn">→</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="ps-0 ps-lg-4 py-3 py-lg-4">
+            <p class="testi-quote mb-4">
+              " I cannot say enough good things about Potato Agency
+              and their exceptional services. From the moment I reached out
+              to them, I was met with professionalism, expertise, and a genuine
+              desire to help my business succeed.
+            </p>
+            <div class="d-flex justify-content-between align-items-center pt-4 border-top">
+              <div>
+                <p class="mb-1" style="font-size:14px;">Mr. Brown Mc Mail</p>
+                <p class="m-0 text-secondary" style="font-size:12px;">Senior Marketing, Mayada Food Inc</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="bg-white pb-5" style="color:var(--black);">
+    <div class="container px-3 px-md-4 px-lg-5">
+      <div class="row founder-card align-items-end g-0">
+
+        <div class="col-12 col-lg-4 d-flex flex-column align-items-start justify-content-end p-4">
+          <img src="https://img.freepik.com/premium-photo/portrait-confident-senior-african-american-businessman-suit-ceo-with-glasses-crossed-arms_777271-16303.jpg"
+               alt="Michael Wibowo" class="founder-photo mb-3">
+          <p class="mb-1" style="font-size:13px;">Michael Wibowo</p>
+          <p class="m-0 text-secondary" style="font-size:12px;">Potato Co-Founder and CEO</p>
+        </div>
+
+        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center p-4 p-lg-5">
+          <blockquote class="fw-normal mb-3" style="font-size:clamp(1.2rem,2.5vw,1.8rem); line-height:1.4; border:none; padding:0;">
+            "Potato Agency believes that marketing should be done
+            in a fun way, so it needs to be done in a new way."
+          </blockquote>
+          <p class="text-secondary mb-4" style="font-size:14px; line-height:1.7;">
+            See how the founder of Potato is trying to revolutionize the marketing industry.
+          </p>
+          <div><button class="btn btn-accent px-4 py-2">Read story</button></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ⑤ CTA + FOOTER ════════════════ -->
+  <section class="bg-dk-teal text-center py-5">
+    <div class="container py-3 py-lg-4">
+      <h1 class="fw-normal mb-3" style="font-size:clamp(1.8rem,5vw,3.2rem); color:var(--light);">Book a demo today</h1>
+      <p class="mx-auto mb-4" style="font-size:15px; color:rgba(255,255,255,0.55); line-height:1.7; max-width:480px;">
+        Marketing is a very important and crucial thing, make sure your
+        business uses a reliable and trustworthy agency.
+      </p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <button class="btn btn-accent px-4 py-3">Get started for free</button>
+        <button class="btn btn-ghost px-4 py-3">Book a Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer mx-2 mx-md-4 mb-3 mb-md-4 px-3 px-md-5 pt-4 pb-3">
+
+    <!-- Top: Logo + Nav -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-4 mb-4 border-bottom footer-divider">
+      <div class="d-flex align-items-center gap-2" style="font-size:15px; color:var(--light);">
+        <span class="rounded-circle border d-flex align-items-center justify-content-center"
+              style="width:32px;height:32px;border-color:rgba(255,255,255,0.2)!important;font-size:14px;flex-shrink:0;">🥔</span>
+        Potato Agency
+      </div>
+      <ul class="d-flex flex-wrap gap-3 gap-md-4 list-unstyled m-0">
+        <li><a href="#" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px;">Platform</a></li>
+        <li><a href="#" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px;">Resources ▾</a></li>
+        <li><a href="#" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px;">Company</a></li>
+        <li><a href="#" style="color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px;">Pricing</a></li>
+      </ul>
+    </div>
+
+    <!-- Mid: Subscribe + Office + Contact -->
+    <div class="row g-4 pb-4 mb-3 border-bottom footer-divider">
+      <div class="col-12 col-md-4">
+        <h6 class="fw-normal mb-1" style="font-size:14px; color:var(--light);">Subscribe for more updates!</h6>
+        <p class="mb-3" style="font-size:12px; color:rgba(255,255,255,0.4); line-height:1.6;">Stay updated with our latest design insights.</p>
+        <div class="email-wrap d-flex align-items-center gap-2 px-3 py-2">
+          <span style="color:rgba(255,255,255,0.3); font-size:15px; flex-shrink:0;">✉</span>
+          <input type="email" placeholder="Enter your email here...">
+          <button>→</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <p class="mb-2" style="font-size:13px; color:var(--light);">🏢 Office</p>
+        <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.7;">28 Young Street,<br>Moonee Ponds, VIC 3039</p>
+      </div>
+      <div class="col-6 col-md-4">
+        <p class="mb-2" style="font-size:13px; color:var(--light);">✉ Contact</p>
+        <p class="m-0" style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.7;">michael@potatoagency.co<br>0482 875 325</p>
+      </div>
+    </div>
+
+    <!-- Bottom: Copyright + Socials -->
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+      <span style="font-size:12px; color:rgba(255,255,255,0.35);">Copyright © 2024 Potato Agency LTD. All rights reserved.</span>
+      <div class="d-flex gap-2">
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">⌥</a>
+        <a href="#" class="social-btn">in</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

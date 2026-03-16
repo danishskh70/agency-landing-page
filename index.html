@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potato Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/tasa-orbiter-display" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ════════════════ ① HERO ════════════════ -->
+  <section class="bg-black min-vh-100 d-flex flex-column justify-content-center section-py">
+    <div class="page-container">
+      <div class="row align-items-center g-4 g-lg-5">
+
+        <!-- Left col -->
+        <div class="col-12 col-lg-6">
+          <span class="badge-ai d-inline-block mb-4">The First Marketing Platform with AI</span>
+
+          <h1 class="hero-heading fw-normal lh-1 mb-3">
+            The Marketing Platform With <span class="fw-bold">High Conversion</span>
+          </h1>
+
+          <p class="hero-desc mb-4">
+            With the right marketing, increase your business income quickly
+            and in the long term, we guarantee our service.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-accent px-4 py-3">Get Started for Free</button>
+            <button class="btn btn-ghost  px-4 py-3">Book a Demo</button>
+          </div>
+
+          <!-- YC Badge -->
+          <div class="d-flex align-items-center gap-2 mt-4">
+            <span class="yc-text">A</span>
+            <span class="badge rounded-1 yc-badge-box px-2 py-1">Y</span>
+            <span class="yc-text">Combinator <em>Company</em></span>
+          </div>
+        </div>
+
+        <!-- Right: chart card -->
+        <div class="col-12 col-lg-6">
+          <div class="hero-card w-100">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="chart-label">Transaction activity ▾</span>
+                <span class="badge rounded-pill chart-period-badge px-2 py-1">1Y ▾</span>
+              </div>
+              <h4 class="fw-bold text-white chart-amount mb-3">$90,865.00</h4>
+              <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" class="w-100">
+                <defs>
+                  <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%"   stop-color="#96E1DC" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#96E1DC" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0"   y1="30"  x2="400" y2="30"  stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="0"   y1="60"  x2="400" y2="60"  stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="0"   y1="90"  x2="400" y2="90"  stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                <line x1="130" y1="0"   x2="130" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="260" y1="0"   x2="260" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20 L400,120 L0,120 Z" fill="url(#chartFill)"/>
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20" fill="none" stroke="#96E1DC" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="260" cy="35" r="4" fill="#96E1DC"/>
+                <circle cx="260" cy="35" r="7" fill="rgba(150,225,220,0.2)"/>
+              </svg>
+              <div class="d-flex justify-content-between mt-2 px-1">
+                <span class="chart-date">Jan 10</span>
+                <span class="chart-date">Feb 10</span>
+              </div>
+            </div>
+            <div class="hero-card-footer d-flex justify-content-between align-items-center px-3 py-3">
+              <span class="chart-received-label">Received Order</span>
+              <span class="badge rounded-pill chart-live-badge px-2">● Live</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Partner strip -->
+      <div class="partner-rule mt-5 pt-4">
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <span class="partner-rule-line d-none d-sm-block"></span>
+          <span class="partner-label">Loved by 100,000+ big and small brands around the world</span>
+          <span class="partner-rule-line d-none d-sm-block"></span>
+        </div>
+        <div class="d-flex justify-content-start justify-content-md-between align-items-center flex-wrap gap-3 gap-md-4">
+          <span class="partner-logo fst-italic">Athena</span>
+          <span class="partner-logo">Baronfig</span>
+          <span class="partner-logo fst-italic">Trust Fund</span>
+          <span class="partner-logo fst-italic">Aura</span>
+          <span class="partner-logo d-flex align-items-center gap-2">
+            <span class="partner-logo-icon rounded-circle d-inline-flex align-items-center justify-content-center">B</span>
+            Brew Money
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════ ② ABOUT ════════════════ -->
+  <section class="bg-white section-py text-dark">
+    <div class="page-container">
+
+      <!-- Heading -->
+      <div class="row mb-4 mb-lg-5">
+        <div class="col-12 text-center">
+          <h1 class="about-heading fw-normal mx-auto">
+            Our features come from the future, simple and powerful
+          </h1>
+          <p class="text-secondary mt-2">Features that are always being developed are powered by Intelligent AI.</p>
+        </div>
+      </div>
+
+      <!-- Row 1: Active Users + Data card -->
+      <div class="row align-items-stretch g-4">
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-between p-3 p-md-4 flex-grow-1">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="users-title">Active users right now</span>
+                  <span class="text-secondary" style="letter-spacing:3px;">⋯</span>
+                </div>
+                <hr class="my-2 opacity-25">
+              </div>
+              <div class="users-big-number fw-bold">120.9k</div>
+              <div>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="country-name flex-grow-1">United States</span>
+                    <span class="country-pct text-secondary">50%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:50%;"></div></div>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="flag-icon">🇮🇳</span>
+                    <span class="country-name flex-grow-1">India</span>
+                    <span class="country-pct text-secondary">30%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:30%;"></div></div>
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="flag-icon">🇬🇧</span>
+                    <span class="country-name flex-grow-1">United Kingdom</span>
+                    <span class="country-pct text-secondary">20%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:20%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-center p-3 p-md-4 flex-grow-1">
+              <h2 class="feature-heading fw-normal mb-3">
+                Everything is based on data, not assumptions
+              </h2>
+              <p class="feature-desc text-secondary mb-4">
+                Data is critical to good decision making, assumptions make bad decisions.
+              </p>
+              <div><button class="btn btn-learn px-4 py-2">Learn More</button></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="my-4 my-lg-5 opacity-10">
+
+      <!-- Row 2: AI card + Chart card -->
+      <div class="row align-items-stretch g-4">
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column justify-content-center p-3 p-md-4 flex-grow-1">
+              <h2 class="feature-heading fw-normal mb-3">
+                The data is continuously updated, processed by AI
+              </h2>
+              <p class="feature-desc text-secondary mb-4">
+                Data taken live from the market and consumers produces insights processed by AI.
+              </p>
+              <div><button class="btn btn-learn px-4 py-2">Learn More</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="col-outer d-flex flex-column h-100">
+            <div class="col-inner d-flex flex-column p-3 p-md-4 flex-grow-1">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="chart-card-title">How do you acquire users?</span>
+                <span class="text-secondary" style="letter-spacing:3px;">⋯</span>
+              </div>
+              <div class="d-flex gap-3 mb-3">
+                <span class="d-flex align-items-center gap-2 legend-label">
+                  <span class="legend-dot" style="background:var(--accent);"></span>Direct
+                </span>
+                <span class="d-flex align-items-center gap-2 legend-label">
+                  <span class="legend-dot" style="background:var(--dark-teal);"></span>Organic search
+                </span>
+              </div>
+              <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" class="w-100">
+                <rect x="10"  y="70" width="35" height="60" rx="4" fill="#042028"/>
+                <rect x="10"  y="45" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="60"  y="45" width="35" height="85" rx="4" fill="#042028"/>
+                <rect x="60"  y="20" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="110" y="80" width="35" height="50" rx="4" fill="#042028"/>
+                <rect x="110" y="55" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="160" y="60" width="35" height="70" rx="4" fill="#042028"/>
+                <rect x="160" y="35" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="210" y="75" width="35" height="55" rx="4" fill="#042028"/>
+                <rect x="210" y="50" width="35" height="25" rx="4" fill="#96E1DC"/>
+                <rect x="260" y="65" width="35" height="65" rx="4" fill="#042028"/>
+                <rect x="260" y="40" width="35" height="25" rx="4" fill="#96E1DC"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ③ PRICING ════════════════ -->
+  <section class="bg-dk-teal section-py">
+    <div class="page-container">
+
+      <div class="row mb-4 mb-lg-5">
+        <div class="col-12 text-center">
+          <h1 class="pricing-heading fw-normal">Save time &amp; money<br>on Potato Agency</h1>
+          <p class="pricing-sub mt-3">
+            Savings, visibility, and infrastructure guardrails. One automated platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+
+        <!-- Pricing card -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="pricing-card p-4 h-100">
+            <div class="d-flex align-items-end gap-1 mb-1">
+              <span class="price-dollar">$</span>
+              <span class="price-number">79</span>
+              <span class="price-cents">.00 / month</span>
+            </div>
+            <hr class="price-divider my-4">
+            <p class="price-plan-label mb-3">Pick a product or all products plan:</p>
+            <ul class="pricing-list mb-4">
+              <li>Facebook Marketing</li>
+              <li>Tiktok Marketing</li>
+              <li>Landingpage Marketing</li>
+              <li>Display TikTok videos</li>
+              <li>Embed Instagram feed</li>
+              <li>Create link in bio page</li>
+            </ul>
+            <button class="btn btn-accent w-100 px-4 py-2">Get started for free</button>
+            <p class="price-note mt-3 mb-0">All Pro features included. 7-day free trial.</p>
+          </div>
+        </div>
+
+        <!-- Feature col 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="d-flex flex-column gap-3 h-100">
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">🔗</div>
+              <h4 class="feature-box-title mb-2">Potato API integrations</h4>
+              <p class="feature-box-desc m-0">Potato has official API integrations with all major social media networks.</p>
+            </div>
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">🎯</div>
+              <h4 class="feature-box-title mb-2">Cancel anytime</h4>
+              <p class="feature-box-desc m-0">If it's not for you, just cancel, with no hidden costs or fees.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature col 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="d-flex flex-column gap-3 h-100">
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">⚡</div>
+              <h4 class="feature-box-title mb-2">Fast-loading widgets</h4>
+              <p class="feature-box-desc m-0">We design interactive social media widgets that load fast on your website.</p>
+            </div>
+            <div class="feature-box p-4 flex-grow-1">
+              <div class="feature-icon d-flex align-items-center justify-content-center mb-3">💬</div>
+              <h4 class="feature-box-title mb-2">Dedicated support team</h4>
+              <p class="feature-box-desc m-0">Just click the bottom left chat icon, and our team will assist you in real-time.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ④ TESTIMONIALS ════════════════ -->
+  <section class="bg-white section-py text-dark">
+    <div class="page-container">
+      <div class="row align-items-center g-4 g-lg-5">
+
+        <div class="col-12 col-lg-5">
+          <h2 class="testi-heading fw-normal mb-3">Loved by entire Marketing teams</h2>
+          <p class="testi-sub text-secondary mb-4">
+            We ensure that our system can work well with the marketing team.
+          </p>
+          <button class="btn btn-outline-gray px-4 py-2">Client Testimonials</button>
+          <div class="d-flex gap-2 mt-4">
+            <button class="arrow-btn">←</button>
+            <button class="arrow-btn">→</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="ps-0 ps-lg-4 py-3 py-lg-4">
+            <p class="testi-quote mb-4">
+              " I cannot say enough good things about Potato Agency
+              and their exceptional services. From the moment I reached out
+              to them, I was met with professionalism, expertise, and a genuine
+              desire to help my business succeed.
+            </p>
+            <div class="d-flex justify-content-between align-items-center pt-4 border-top">
+              <div>
+                <p class="testi-author-name mb-1">Mr. Brown Mc Mail</p>
+                <p class="testi-author-role text-secondary m-0">Senior Marketing, Mayada Food Inc</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="bg-white pb-5 text-dark">
+    <div class="page-container">
+      <div class="row founder-card align-items-end g-0">
+
+        <div class="col-12 col-lg-4 d-flex flex-column align-items-start justify-content-end p-4">
+          <img src="https://img.freepik.com/premium-photo/portrait-confident-senior-african-american-businessman-suit-ceo-with-glasses-crossed-arms_777271-16303.jpg"
+               alt="Michael Wibowo" class="founder-photo mb-3">
+          <p class="founder-name mb-1">Michael Wibowo</p>
+          <p class="founder-role text-secondary m-0">Potato Co-Founder and CEO</p>
+        </div>
+
+        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center p-4 p-lg-5">
+          <blockquote class="founder-quote mb-3">
+            "Potato Agency believes that marketing should be done
+            in a fun way, so it needs to be done in a new way."
+          </blockquote>
+          <p class="founder-desc text-secondary mb-4">
+            See how the founder of Potato is trying to revolutionize the marketing industry.
+          </p>
+          <div><button class="btn btn-accent px-4 py-2">Read story</button></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ⑤ CTA ════════════════ -->
+  <section class="bg-dk-teal section-py text-center">
+    <div class="page-container">
+      <h1 class="cta-heading fw-normal mb-3">Book a demo today</h1>
+      <p class="cta-desc mx-auto mb-4">
+        Marketing is a very important and crucial thing, make sure your
+        business uses a reliable and trustworthy agency.
+      </p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <button class="btn btn-accent px-4 py-3">Get started for free</button>
+        <button class="btn btn-ghost  px-4 py-3">Book a Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="site-footer pt-4 pb-3">
+    <div class="footer-inner px-3 px-md-4 px-lg-5">
+
+      <!-- Top: Logo + Nav -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 pb-4 mb-4 border-bottom footer-divider">
+        <div class="d-flex align-items-center gap-2 footer-logo-text">
+          <span class="footer-logo-icon rounded-circle border d-flex align-items-center justify-content-center">🥔</span>
+          Potato Agency
+        </div>
+        <ul class="d-flex flex-wrap gap-3 gap-md-4 list-unstyled m-0">
+          <li><a href="#" class="footer-nav-link">Platform</a></li>
+          <li><a href="#" class="footer-nav-link">Resources ▾</a></li>
+          <li><a href="#" class="footer-nav-link">Company</a></li>
+          <li><a href="#" class="footer-nav-link">Pricing</a></li>
+        </ul>
+      </div>
+
+      <!-- Mid: Subscribe + Office + Contact -->
+      <div class="row g-4 pb-4 mb-3 border-bottom footer-divider">
+        <div class="col-12 col-md-4">
+          <p class="footer-subscribe-title mb-1">Subscribe for more updates!</p>
+          <p class="footer-subscribe-desc mb-3">Stay updated with our latest design insights.</p>
+          <div class="email-wrap d-flex align-items-center gap-2 px-3 py-2">
+            <span class="email-icon">✉</span>
+            <input type="email" placeholder="Enter your email here...">
+            <button>→</button>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <p class="footer-info-label mb-2">🏢 Office</p>
+          <p class="footer-info-text m-0">28 Young Street,<br>Moonee Ponds, VIC 3039</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <p class="footer-info-label mb-2">✉ Contact</p>
+          <p class="footer-info-text m-0">michael@potatoagency.co<br>0482 875 325</p>
+        </div>
+      </div>
+
+      <!-- Bottom: Copyright + Socials -->
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
+        <span class="footer-copy">Copyright © 2024 Potato Agency LTD. All rights reserved.</span>
+        <div class="d-flex gap-2">
+          <a href="#" class="social-btn">𝕏</a>
+          <a href="#" class="social-btn">⌥</a>
+          <a href="#" class="social-btn">in</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

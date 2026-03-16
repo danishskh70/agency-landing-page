@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potato Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/tasa-orbiter-display" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════
+       ROOT & BASE
+    ══════════════════════════════════════ */
+    :root {
+      --black: #141315;
+      --accent: #96E1DC;
+      --light: #F7F7F7;
+      --dark-teal: #042028;
+      --font-regular: 400;
+      --font-bold: 700;
+      --heading-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'TASA Orbiter Display', sans-serif;
+      background: var(--dark-teal);
+      color: var(--light);
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea, .btn {
+      font-family: inherit;
+    }
+
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ══════════════════════════════════════
+       ① HERO SECTION
+    ══════════════════════════════════════ */
+    section.hero {
+      background-color: var(--black);
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 40px;
+    }
+
+    section.hero .container { width: 100%; }
+
+    small.ai {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background-color: rgba(150, 225, 220, 0.1);
+      border: 1px solid rgba(150, 225, 220, 0.25);
+      border-radius: 6px;
+      padding: 6px 14px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    h1.heading {
+      font-weight: var(--font-regular);
+      font-size: var(--heading-size);
+      color: var(--light);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h1.heading .emph { font-weight: var(--font-bold); }
+
+    p.marketdesc {
+      color: rgba(247, 247, 247, 0.65);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .buttonsection { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--black);
+      border: none;
+      font-weight: var(--font-bold);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .btn-accent:hover { background-color: #7dcfca; color: var(--black); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid rgba(247, 247, 247, 0.25);
+      color: var(--light);
+      font-weight: var(--font-bold);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .yc-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .yc-badge .yc-a { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .yc-badge .yc-box {
+      background: #ff6600;
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .yc-badge .yc-text { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+    /* hero card */
+    section.hero .card {
+      background-color: #0a2a28;
+      border: 1px solid rgba(150, 225, 220, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .card-bottom {
+      background-color: #0d3330;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .partner-strip {
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 40px;
+    }
+
+    .partner-strip .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .partner-strip .divider::before,
+    .partner-strip .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .partner-strip .divider span {
+      font-size: 12px;
+      color: rgba(247,247,247,0.4);
+      white-space: nowrap;
+    }
+
+    .partner-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.02em;
+    }
+
+    /* ══════════════════════════════════════
+       ② ABOUT SECTION
+    ══════════════════════════════════════ */
+    section.about {
+      background: #ffffff;
+      padding: 80px 0;
+      color: var(--black);
+    }
+
+    .section-heading {
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--black);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: #6b7280;
+      margin-top: 12px;
+    }
+
+    .col-outer {
+      background: #f3f4f6;
+      border-radius: 20px;
+      padding: 20px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-inner-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .col-inner-card.text-card { justify-content: center; }
+
+    .users-card-title { font-size: 15px; font-weight: 700; color: var(--black); }
+
+    .users-big-number {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--black);
+      margin: 20px 0 28px;
+    }
+
+    .country-item { margin-bottom: 22px; }
+    .country-item:last-child { margin-bottom: 0; }
+
+    .country-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .country-label .flag { font-size: 22px; line-height: 1; }
+    .country-label .name { font-size: 15px; color: var(--black); flex: 1; }
+    .country-label .pct { font-size: 14px; color: #6b7280; }
+
+    .country-bar {
+      height: 7px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .country-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .feature-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .feature-desc {
+      font-size: 17px;
+      color: #6b7280;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .btn-learn {
+      background: #ffffff;
+      border: 1.5px solid #d1d5db;
+      color: var(--black);
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-learn:hover {
+      background: var(--dark-teal);
+      color: var(--accent);
+      border-color: var(--dark-teal);
+    }
+
+    .chart-title { font-size: 15px; font-weight: 400; color: var(--black); }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .row-divider {
+      border: none;
+      border-top: 1px solid #f0f0f0;
+      margin: 48px 0;
+    }
+
+    /* ══════════════════════════════════════
+       ③ PRICING SECTION
+    ══════════════════════════════════════ */
+    section.pricing {
+      padding: 80px 0;
+      background: var(--dark-teal);
+    }
+
+    .pricing-heading {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--light);
+      line-height: 1.2;
+    }
+
+    .pricing-sub {
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px 32px;
+      height: 100%;
+    }
+
+    .price-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+
+    .price-dollar { font-size: 1.4rem; font-weight: 400; color: var(--light); line-height: 1.8; }
+    .price-number { font-size: 4rem; font-weight: 400; color: var(--light); line-height: 1; }
+    .price-cents { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 2; }
+
+    .price-divider { border-color: rgba(255,255,255,0.1); margin: 20px 0; }
+
+    .price-plan-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 14px;
+    }
+
+    .pricing-list { list-style: none; padding: 0; margin-bottom: 32px; }
+
+    .pricing-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pricing-list li::before { content: '✓'; color: var(--accent); font-size: 13px; }
+
+    .btn-accent-pricing {
+      background: var(--accent);
+      color: var(--dark-teal);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      display: inline-block;
+    }
+
+    .btn-accent-pricing:hover { background: #7dcfca; }
+
+    .price-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 14px;
+    }
+
+    .feature-item {
+      flex: 1;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(150,225,220,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .features-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      gap: 16px;
+    }
+
+    .feature-item h4 {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════
+       ④ TESTIMONIALS SECTION
+    ══════════════════════════════════════ */
+    section.testimonials {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+
+    section.testimonials h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    section.testimonials p {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 280px;
+    }
+
+    .btn-outline-custom {
+      background: transparent;
+      border: 1.5px solid #d1d5db;
+      color: var(--black);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-custom:hover {
+      background: var(--dark-teal);
+      color: var(--accent);
+      border-color: var(--dark-teal);
+    }
+
+    .testi-card { padding: 20px 0 20px 40px; }
+
+    .testi-card .quote {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .testi-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 20px;
+    }
+
+    .testi-author .name { font-size: 14px; font-weight: 400; color: var(--black); margin: 0 0 4px; }
+    .testi-author .role { font-size: 12px; color: #9ca3af; margin: 0; }
+
+    .testi-arrows { display: flex; gap: 10px; }
+
+    .testi-arrows button {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid #d1d5db;
+      background: transparent;
+      color: var(--black);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .testi-arrows button:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FOUNDER ── */
+    section.founder {
+      padding: 0 0 80px;
+      background: #ffffff;
+    }
+
+    .founder-card {
+      background: #f8f9fa;
+      border-radius: 16px;
+      border-top: 3px solid var(--accent);
+      overflow: hidden;
+      align-items: flex-end;
+      min-height: 380px;
+    }
+
+    .founder-img {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      height: 100%;
+      padding: 32px 0 24px 32px;
+    }
+
+    .founder-img img {
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      margin-bottom: 16px;
+      filter: grayscale(20%);
+    }
+
+    .founder-name { font-size: 13px; font-weight: 400; color: var(--black); margin: 0 0 4px; }
+    .founder-role { font-size: 12px; color: #9ca3af; margin: 0; }
+
+    .founder-content {
+      padding: 60px 48px 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .founder-content blockquote {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.4;
+      border: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .founder-content p {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .btn-accent-founder {
+      background: var(--accent);
+      color: var(--dark-teal);
+      border: none;
+      width: 200px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn-accent-founder:hover { background: #7dcfca; }
+
+    /* ══════════════════════════════════════
+       ⑤ CTA + FOOTER
+    ══════════════════════════════════════ */
+    section.cta {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--dark-teal);
+    }
+
+    section.cta h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--light);
+      margin-bottom: 20px;
+    }
+
+    section.cta p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn-accent-cta {
+      background: var(--accent);
+      color: var(--dark-teal);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .btn-accent-cta:hover { background: #7dcfca; }
+
+    .btn-outline-cta {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: var(--light);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-cta:hover { border-color: var(--accent); color: var(--accent); }
+
+    footer {
+      background: #071c1a;
+      border-radius: 16px;
+      margin: 0 40px 40px;
+      padding: 40px 48px 28px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 32px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--light);
+    }
+
+    .footer-logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .footer-nav { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--accent); }
+
+    .footer-mid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 24px;
+    }
+
+    .footer-subscribe h6 { font-size: 14px; font-weight: 400; color: var(--light); margin-bottom: 6px; }
+    .footer-subscribe p { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 16px; line-height: 1.6; }
+
+    .email-input-wrap {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 14px;
+      gap: 10px;
+    }
+
+    .email-input-wrap input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--light);
+      font-size: 13px;
+      font-family: 'TASA Orbiter Display', sans-serif;
+      flex: 1;
+    }
+
+    .email-input-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+
+    .email-input-wrap button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .email-input-wrap button:hover { color: var(--accent); }
+
+    .footer-info-block { display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-info-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--light);
+      margin-bottom: 6px;
+    }
+
+    .footer-info-label span { font-size: 15px; }
+    .footer-info-block p { font-size: 13px; color: rgba(255,255,255,0.45); margin: 0; line-height: 1.7; }
+
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+    .social-links { display: flex; gap: 12px; }
+
+    .social-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 991.98px) {
+      section.hero { padding: 48px 0 28px; }
+      section.about { padding: 64px 0; }
+      section.pricing { padding: 64px 0; }
+      section.testimonials { padding: 64px 0; }
+      section.cta { padding: 80px 0; }
+
+      .col-outer { height: auto; }
+      .users-big-number { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+
+      .testi-card { padding: 20px 0; }
+
+      .founder-card { align-items: stretch; }
+      .founder-img { padding: 24px; }
+      .founder-img img { width: 100%; max-width: 280px; height: auto; }
+      .founder-content { padding: 32px 24px; }
+      .btn-accent-founder { width: auto; }
+
+      footer { margin: 0 16px 16px; padding: 28px 20px 20px; }
+      .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-nav { flex-wrap: wrap; gap: 14px 22px; }
+      .footer-mid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    @media (max-width: 575.98px) {
+      .container.px-5 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      .partner-strip { margin-top: 40px; padding-top: 28px; }
+      .partner-logo { font-size: 16px; }
+
+      section.cta { padding: 64px 0; }
+
+      .footer-mid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════
+       ① HERO
+  ════════════════════════════════ -->
+  <section class="hero">
+    <div class="container px-5">
+      <div class="row align-items-center g-4">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-6">
+          <small class="ai">The First Marketing Platform with AI</small>
+          <br><br>
+          <h1 class="heading">
+            The Marketing Platform With
+            <span class="emph">High Conversion</span>
+          </h1>
+          <p class="marketdesc">
+            With the right marketing, increase your business income <br>quickly
+            and in the long term, we guarantee our service.
+          </p>
+          <div class="buttonsection">
+            <button class="btn btn-accent">Get Started for Free</button>
+            <button class="btn btn-outline">Book a Demo</button>
+          </div>
+          <div class="yc-badge">
+            <span class="yc-a">A</span>
+            <span class="yc-box">Y</span>
+            <span class="yc-text">Combinator <em>Company</em></span>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-lg-6 ps-lg-5">
+          <div class="card w-100">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span style="color:rgba(255,255,255,0.6); font-size:13px;">Transaction activity ▾</span>
+                <span class="badge rounded-pill px-2 py-1" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); font-size:11px;">1Y ▾</span>
+              </div>
+              <h4 class="fw-bold text-white mb-3" style="font-size:22px;">$90,865.00</h4>
+              <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:120px;">
+                <defs>
+                  <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#96E1DC" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="#96E1DC" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="30" x2="400" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <line x1="0" y1="90" x2="400" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <line x1="130" y1="0" x2="130" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4" />
+                <line x1="260" y1="0" x2="260" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4" />
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20 L400,120 L0,120 Z" fill="url(#chartFill)" />
+                <path d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20" fill="none" stroke="#96E1DC" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+                <circle cx="260" cy="35" r="4" fill="#96E1DC" />
+                <circle cx="260" cy="35" r="7" fill="rgba(150,225,220,0.2)" />
+              </svg>
+              <div class="d-flex justify-content-between mt-2 px-1">
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Jan 10</span>
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Feb 10</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span style="color:rgba(255,255,255,0.5); font-size:13px;">Received Order</span>
+              <span class="badge rounded-pill px-2" style="background:rgba(150,225,220,0.15); color:var(--accent); font-size:11px;">● Live</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PARTNER STRIP -->
+      <div class="partner-strip">
+        <div class="divider mb-4">
+          <span>Loved by 100,000+ big and small brands around the world</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-4 px-3">
+          <span class="partner-logo" style="font-style:italic;">Athena</span>
+          <span class="partner-logo">Baronfig</span>
+          <span class="partner-logo" style="font-style:italic;">Trust Fund</span>
+          <span class="partner-logo" style="font-style:italic;">Aura</span>
+          <span class="partner-logo d-flex align-items-center gap-2">
+            <span class="rounded-circle d-inline-flex align-items-center justify-content-center" style="width:22px;height:22px;background:rgba(255,255,255,0.1);font-size:10px;">B</span>
+            Brew Money
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       ② ABOUT
+  ════════════════════════════════ -->
+  <section class="about">
+    <div class="container py-5" style="max-width:1100px;">
+
+      <!-- Heading -->
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h1 class="section-heading">Our features come from the future, simple and powerful</h1>
+          <p class="section-sub">Features that are always being developed are powered by Intelligent AI.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: Active Users + Data Text -->
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <div class="col-outer">
+            <div class="col-inner-card">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="users-card-title">Active users right now</span>
+                  <span style="color:#9ca3af; letter-spacing:3px; font-size:15px;">⋯</span>
+                </div>
+                <hr style="border-color:#f0f0f0; margin:10px 0 0;">
+              </div>
+              <div class="users-big-number">120.9k</div>
+              <div>
+                <div class="country-item">
+                  <div class="country-label">
+                    <span class="flag">🇺🇸</span>
+                    <span class="name">United States</span>
+                    <span class="pct">50%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:50%;"></div></div>
+                </div>
+                <div class="country-item">
+                  <div class="country-label">
+                    <span class="flag">🇮🇳</span>
+                    <span class="name">India</span>
+                    <span class="pct">30%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:30%;"></div></div>
+                </div>
+                <div class="country-item">
+                  <div class="country-label">
+                    <span class="flag">🇬🇧</span>
+                    <span class="name">United Kingdom</span>
+                    <span class="pct">20%</span>
+                  </div>
+                  <div class="country-bar"><div class="country-bar-fill" style="width:20%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="col-outer">
+            <div class="col-inner-card text-card">
+              <div>
+                <h2 class="feature-title">Everything is based on data,<br>not assumptions</h2>
+                <p class="feature-desc">Data is critical to good decision making,<br>assumptions make bad decisions.</p>
+                <div><button class="btn-learn">Learn More</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="row-divider">
+
+      <!-- Row 3: AI Text + Bar Chart -->
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <div class="col-outer">
+            <div class="col-inner-card text-card">
+              <div>
+                <h2 class="feature-title">The data is continuously updated, processed by AI</h2>
+                <p class="feature-desc">Data taken live from the market and consumers <br>produces insights processed by AI.</p>
+                <div><button class="btn-learn">Learn More</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="col-outer">
+            <div class="col-inner-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="chart-title fs-1">How do you acquire users?</span>
+                <span style="color:#9ca3af; letter-spacing:3px; font-size:15px;">⋯</span>
+              </div>
+              <div class="d-flex gap-3 mb-3">
+                <span class="d-flex align-items-center gap-2" style="font-size:14px;color:var(--black);">
+                  <span class="legend-dot" style="background:var(--accent);"></span>Direct
+                </span>
+                <span class="d-flex align-items-center gap-2" style="font-size:14px;color:var(--black);">
+                  <span class="legend-dot" style="background:var(--dark-teal);"></span>Organic search
+                </span>
+              </div>
+              <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:220px;">
+                <rect x="10" y="70" width="35" height="60" rx="4" fill="#042028" />
+                <rect x="10" y="45" width="35" height="25" rx="4" fill="#96E1DC" />
+                <rect x="60" y="45" width="35" height="85" rx="4" fill="#042028" />
+                <rect x="60" y="20" width="35" height="25" rx="4" fill="#96E1DC" />
+                <rect x="110" y="80" width="35" height="50" rx="4" fill="#042028" />
+                <rect x="110" y="55" width="35" height="25" rx="4" fill="#96E1DC" />
+                <rect x="160" y="60" width="35" height="70" rx="4" fill="#042028" />
+                <rect x="160" y="35" width="35" height="25" rx="4" fill="#96E1DC" />
+                <rect x="210" y="75" width="35" height="55" rx="4" fill="#042028" />
+                <rect x="210" y="50" width="35" height="25" rx="4" fill="#96E1DC" />
+                <rect x="260" y="65" width="35" height="65" rx="4" fill="#042028" />
+                <rect x="260" y="40" width="35" height="25" rx="4" fill="#96E1DC" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       ③ PRICING
+  ════════════════════════════════ -->
+  <section class="pricing">
+    <div class="container px-5">
+
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h1 class="pricing-heading">Save time &amp; money<br>on Potato Agency</h1>
+          <p class="pricing-sub mt-3">
+            Savings, visibility, and infrastructure guardrails.<br>One automated platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+
+        <div class="col-lg-4">
+          <div class="pricing-card">
+            <div class="price-wrap">
+              <span class="price-dollar">$</span>
+              <span class="price-number">79</span>
+              <span class="price-cents">.00 / month</span>
+            </div>
+            <hr class="price-divider">
+            <p class="price-plan-label">Pick a product or all products plan:</p>
+            <ul class="pricing-list">
+              <li>Facebook Marketing</li>
+              <li>Tiktok Marketing</li>
+              <li>Landingpage Marketing</li>
+              <li>Display TikTok videos</li>
+              <li>Embed Instagram feed</li>
+              <li>Create link in bio page</li>
+            </ul>
+            <button class="btn-accent-pricing">Get started for free</button>
+            <p class="price-note">All Pro features included. 7-day free trial.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="features-col">
+            <div class="feature-item">
+              <div class="feature-icon">🔗</div>
+              <h4>Potato API integrations</h4>
+              <p>Potato has official API integrations <br>with all major social media networks.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎯</div>
+              <h4>Cancel anytime</h4>
+              <p>If it's not for you, just cancel, <br>with no hidden costs or fees.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="features-col">
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <h4>Fast-loading widgets</h4>
+              <p>We design interactive social media widgets <br>that load fast on your website.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💬</div>
+              <h4>Dedicated support team</h4>
+              <p>Just click the bottom left chat icon, <br>and our team will assist you in real-time.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       ④ TESTIMONIALS + FOUNDER
+  ════════════════════════════════ -->
+  <section class="testimonials">
+    <div class="container px-5">
+      <div class="row align-items-center">
+
+        <div class="col-lg-5">
+          <h2>Loved by entire <br>Marketing teams</h2>
+          <p>We ensure that our system can work well with the marketing team.</p>
+          <button class="btn-outline-custom">Client Testimonials</button>
+          <div class="testi-arrows py-5 px-3">
+            <button>←</button>
+            <button>→</button>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="testi-card">
+            <p class="quote">
+              " I cannot say enough good things about Potato Agency
+              and their exceptional services. From the moment I reached out
+              to them, I was met with professionalism, expertise, and a genuine
+              desire to help my business succeed.
+            </p>
+            <div class="testi-footer">
+              <div class="testi-author">
+                <p class="name">Mr. Brown Mc Mail</p>
+                <p class="role">Senior Marketing, Mayada Food Inc</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="founder">
+    <div class="container px-5">
+      <div class="row founder-card">
+
+        <div class="col-lg-4">
+          <div class="founder-img">
+            <img src="https://img.freepik.com/premium-photo/portrait-confident-senior-african-american-businessman-suit-ceo-with-glasses-crossed-arms_777271-16303.jpg" alt="Michael Wibowo">
+            <p class="founder-name">Michael Wibowo</p>
+            <p class="founder-role">Potato Co-Founder and CEO</p>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="founder-content">
+            <blockquote>
+              "Potato Agency believes that marketing <br>should be done
+              in a fun way, so it needs <br>to be done in a new way."
+            </blockquote>
+            <p>
+              See how the founder of Potato <br>is trying to revolutionize
+              the marketing industry.
+            </p>
+            <button class="btn-accent-founder">Read story</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       ⑤ CTA + FOOTER
+  ════════════════════════════════ -->
+  <section class="cta">
+    <div class="container">
+      <h1>Book a demo today</h1>
+      <p>
+        Marketing is a very important and crucial thing, make sure your
+        business uses a reliable and trustworthy agency.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn-accent-cta">Get started for free</button>
+        <button class="btn-outline-cta">Book a Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">🥔</div>
+        Potato Agency
+      </div>
+      <ul class="footer-nav">
+        <li><a href="#">Platform</a></li>
+        <li><a href="#">Resources ▾</a></li>
+        <li><a href="#">Company</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-mid">
+      <div class="footer-subscribe">
+        <h6>Subscribe for more updates!</h6>
+        <p>Stay updated with our latest design insights.</p>
+        <div class="email-input-wrap">
+          <span style="color:rgba(255,255,255,0.3); font-size:15px;">✉</span>
+          <input type="email" placeholder="Enter your email here...">
+          <button>→</button>
+        </div>
+      </div>
+
+      <div class="footer-info-block">
+        <div class="footer-info-label"><span>🏢</span> Office</div>
+        <p>28 Young Street,<br>Moonee Ponds, VIC 3039</p>
+      </div>
+
+      <div class="footer-info-block">
+        <div class="footer-info-label"><span>✉</span> Contact</div>
+        <p>michael@potatoagency.co<br>0482 875 325</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">Copyright © 2024 Potato Agency LTD. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">⌥</a>
+        <a href="#" class="social-btn">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

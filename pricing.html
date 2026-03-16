@@ -1,0 +1,290 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tasa-orbiter-display" rel="stylesheet">
+    <style>
+      :root {
+        --accent: #96E1DC;
+        --dark-teal: #042028;
+        --black: #141315;
+        --light: #F7F7F7;
+      }
+
+      html,
+      body {
+        font-family: 'TASA Orbiter Display', sans-serif;
+        background: var(--dark-teal);
+        color: var(--light);
+      }
+
+      button,
+      input,
+      select,
+      textarea,
+      .btn {
+        font-family: inherit;
+      }
+
+      section.pricing {
+        padding: 80px 0;
+      }
+
+      /* ── HEADING ── */
+      .pricing-heading {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        color: var(--light);
+        line-height: 1.2;
+      }
+
+      .pricing-sub {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* ── PRICING CARD ── */
+      .pricing-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 36px 32px;
+        height: 100%;
+      }
+
+      /* Price display */
+      .price-wrap {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+        margin-bottom: 4px;
+      }
+
+      .price-dollar {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--light);
+        line-height: 1.8;
+      }
+
+      .price-number {
+        font-size: 4rem;
+        font-weight: 400;
+        color: var(--light);
+        line-height: 1;
+      }
+
+      .price-cents {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 2;
+      }
+
+      .price-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+        margin: 20px 0;
+      }
+
+      .price-plan-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 14px;
+      }
+
+      /* List */
+      .pricing-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 32px;
+      }
+
+      .pricing-list li {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .pricing-list li::before {
+        content: '✓';
+        color: var(--accent);
+        font-size: 13px;
+      }
+
+      /* Button */
+      .btn-accent {
+        background: var(--accent);
+        color: var(--dark-teal);
+        border: none;
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        font-family: 'TASA Orbiter Display', sans-serif;
+        display: inline-block;
+      }
+
+      .btn-accent:hover {
+        background: #7dcfca;
+      }
+
+      .price-note {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+        margin-top: 14px;
+      }
+
+      /* UPDATE feature-item — add padding */
+      .feature-item {
+        flex: 1;
+        padding: 24px;
+        /* ADD */
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        /* ADD */
+        border-radius: 12px;
+        /* ADD */
+      }
+
+      /* UPDATE feature-icon — make it a small square box not circle */
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        /* CHANGE from 50% to 10px */
+        background: rgba(150, 225, 220, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+
+      /* UPDATE features-col — reduce gap so boxes sit closer */
+      .features-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        gap: 16px;
+        /* ADD small gap between boxes */
+      }
+
+      .feature-item h4 {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--light);
+        margin-bottom: 8px;
+      }
+
+      .feature-item p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.65;
+        margin: 0;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <section class="pricing">
+      <div class="container px-5">
+
+        <!-- ROW 1: Heading — centered -->
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h1 class="pricing-heading">
+              Save time &amp; money<br>on Potato Agency
+            </h1>
+            <p class="pricing-sub mt-3">
+              Savings, visibility, and infrastructure guardrails.<br>
+              One automated platform.
+            </p>
+          </div>
+        </div>
+
+        <!-- ROW 2: Pricing + Features -->
+        <div class="row g-4 align-items-stretch">
+
+          <!-- COL 1: Pricing Card -->
+          <div class="col-lg-4">
+            <div class="pricing-card">
+
+              <!-- Price -->
+              <div class="price-wrap">
+                <span class="price-dollar">$</span>
+                <span class="price-number">79</span>
+                <span class="price-cents">.00 / month</span>
+              </div>
+
+              <hr class="price-divider">
+
+              <p class="price-plan-label">Pick a product or all products plan:</p>
+
+              <ul class="pricing-list">
+                <li>Facebook Marketing</li>
+                <li>Tiktok Marketing</li>
+                <li>Landingpage Marketing</li>
+                <li>Display TikTok videos</li>
+                <li>Embed Instagram feed</li>
+                <li>Create link in bio page</li>
+              </ul>
+
+              <button class="btn-accent">Get started for free</button>
+              <p class="price-note">All Pro features included. 7-day free trial.</p>
+
+            </div>
+          </div>
+
+          <!-- COL 2: Features left -->
+          <div class="col-lg-4">
+            <div class="features-col">
+
+              <div class="feature-item">
+                <div class="feature-icon">🔗</div>
+                <h4>Potato API integrations</h4>
+                <p>Potato has official API integrations <br>with all major social media networks.</p>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h4>Cancel anytime</h4>
+                <p>If it's not for you, just cancel, <br> with no hidden costs or fees.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- COL 3: Features right -->
+          <div class="col-lg-4">
+            <div class="features-col">
+
+              <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h4>Fast-loading widgets</h4>
+                <p>We design interactive social media widgets <br> that load fast on your website.</p>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <h4>Dedicated support team</h4>
+                <p>Just click the bottom left chat icon, <br>and our team will assist you in real-time.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </body>
+
+  </html>

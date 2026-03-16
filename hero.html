@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Section</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/tasa-orbiter-display" rel="stylesheet">
+  <style>
+    :root {
+      --black: #141315;
+      --accent: #96E1DC;
+      --light: #F7F7F7;
+      --dark-teal: #042028;
+      --font-regular: 400;
+      --font-bold: 700;
+      --heading-size: 3.5rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'TASA Orbiter Display', sans-serif;
+      background: var(--dark-teal);
+      color: var(--light);
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HERO */
+    section.hero {
+      background-color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 40px;
+    }
+
+    section.hero .container {
+      width: 100%;
+    }
+
+    /* BADGE */
+    small.ai {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background-color: rgba(150, 225, 220, 0.1);
+      border: 1px solid rgba(150, 225, 220, 0.25);
+      border-radius: 6px;
+      padding: 6px 14px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    /* HEADING */
+    h1.heading {
+      font-weight: var(--font-regular);
+      font-size: var(--heading-size);
+      color: var(--light);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h1.heading .emph {
+      font-weight: var(--font-bold);
+    }
+
+    /* DESCRIPTION */
+    p.marketdesc {
+      color: rgba(247, 247, 247, 0.65);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    /* BUTTONS */
+    .buttonsection {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--black);
+      border: none;
+      font-weight: var(--font-bold);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .btn-accent:hover {
+      background-color: #7dcfca;
+      color: var(--black);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid rgba(247, 247, 247, 0.25);
+      color: var(--light);
+      font-weight: var(--font-bold);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* YC BADGE */
+    .yc-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .yc-badge .yc-a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .yc-badge .yc-box {
+      background: #ff6600;
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .yc-badge .yc-text {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* CARD */
+    .card {
+      background-color: #0a2a28;
+      border: 1px solid rgba(150, 225, 220, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .card-bottom {
+      background-color: #0d3330;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* PARTNER STRIP */
+    .partner-strip {
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 40px;
+    }
+
+    .partner-strip .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .partner-strip .divider::before,
+    .partner-strip .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .partner-strip .divider span {
+      font-size: 12px;
+      color: rgba(247, 247, 247, 0.4);
+      white-space: nowrap;
+    }
+
+    .partner-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="container px-5">
+      <div class="row align-items-center g-4">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-6">
+
+          <!-- Badge -->
+          <small class="ai">The First Marketing Platform with AI</small>
+          <br><br>
+          <!-- Heading -->
+          <h1 class="heading">
+            The Marketing Platform With
+            <span class="emph">High Conversion</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="marketdesc">
+            With the right marketing, increase your business income <br>quickly
+            and in the long term, we guarantee our service.
+          </p>
+
+          <!-- Buttons -->
+          <div class="buttonsection">
+            <button class="btn btn-accent">Get Started for Free</button>
+            <button class="btn btn-outline">Book a Demo</button>
+          </div>
+
+          <!-- YC Badge -->
+          <div class="yc-badge">
+            <span class="yc-a">A</span>
+            <span class="yc-box">Y</span>
+            <span class="yc-text">Combinator <em>Company</em></span>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-lg-6 ps-lg-5">
+          <div class="card w-100">
+
+            <!-- Chart top section -->
+            <div class="p-3">
+
+              <!-- Header -->
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span style="color:rgba(255,255,255,0.6); font-size:13px;">
+                  Transaction activity ▾
+                </span>
+                <span class="badge rounded-pill px-2 py-1"
+                  style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); font-size:11px;">
+                  1Y ▾
+                </span>
+              </div>
+
+              <!-- Amount -->
+              <h4 class="fw-bold text-white mb-3" style="font-size:22px;">$90,865.00</h4>
+
+              <!-- SVG Line Chart -->
+              <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:120px;">
+                <defs>
+                  <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#96E1DC" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="#96E1DC" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <!-- Grid lines horizontal -->
+                <line x1="0" y1="30" x2="400" y2="30" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <line x1="0" y1="90" x2="400" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                <!-- Vertical dashed lines -->
+                <line x1="130" y1="0" x2="130" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1"
+                  stroke-dasharray="4,4" />
+                <line x1="260" y1="0" x2="260" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="1"
+                  stroke-dasharray="4,4" />
+                <!-- Fill area -->
+                <path
+                  d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20 L400,120 L0,120 Z"
+                  fill="url(#chartFill)" />
+                <!-- Line -->
+                <path
+                  d="M0,90 C30,85 50,95 80,80 C110,65 120,75 130,60 C150,40 160,55 190,45 C220,35 230,50 260,35 C290,20 310,40 340,30 C360,22 380,28 400,20"
+                  fill="none" stroke="#96E1DC" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+                <!-- Dot -->
+                <circle cx="260" cy="35" r="4" fill="#96E1DC" />
+                <circle cx="260" cy="35" r="7" fill="rgba(150,225,220,0.2)" />
+              </svg>
+
+              <!-- Date labels -->
+              <div class="d-flex justify-content-between mt-2 px-1">
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Jan 10</span>
+                <span style="font-size:11px; color:rgba(255,255,255,0.4);">Feb 10</span>
+              </div>
+
+            </div>
+
+            <!-- Bottom: received order -->
+            <div class="card-bottom">
+              <span style="color:rgba(255,255,255,0.5); font-size:13px;">Received Order</span>
+              <span class="badge rounded-pill px-2"
+                style="background:rgba(150,225,220,0.15); color:var(--accent); font-size:11px;">
+                ● Live
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PARTNER STRIP -->
+      <div class="partner-strip">
+        <div class="divider mb-4">
+          <span>Loved by 100,000+ big and small brands around the world</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-4 px-3">
+          <span class="partner-logo" style="font-style:italic;">Athena</span>
+          <span class="partner-logo">Baronfig</span>
+          <span class="partner-logo" style="font-style:italic;">Trust Fund</span>
+          <span class="partner-logo" style="font-style:italic;">Aura</span>
+          <span class="partner-logo d-flex align-items-center gap-2">
+            <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+              style="width:22px;height:22px;background:rgba(255,255,255,0.1);font-size:10px;">B</span>
+            Brew Money
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
